@@ -7,11 +7,12 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Madrid
+      - SETTINGS_ENCRYPTION_KEY=mysecret
+      - DUPLICATI__WEBSERVICE_PASSWORD=p4ssw0rd      
     volumes:
       - ./config:/config
       - ./backups:/backups
-      - /root/docker:/source
+      - ./source:/source
     ports:
       - "8200:8200"
     restart: unless-stopped
-
